@@ -1,0 +1,45 @@
+<html>
+    <head>
+  <title>Calculadora de Juros Compostos</title>
+
+        <script>
+            function calcular()
+            {
+                c = document.getElementById("c").value;
+                n = 1
+                t = document.getElementById("t").value; 
+                tx = document.getElementById("tx").value;
+                resultado = document.getElementById("resultado");
+
+                
+                A = (c* Math.pow((1 + (tx/(n*100))), (n*t)));
+
+                
+                resultado.innerHTML = "O Total e: R$ " + A.toFixed(2);
+
+                resultado.innerHTML += "<br>O Total de Juros e: R$ " + (A.toFixed(2) - c).toFixed(2);
+            }
+        </script>
+        <style>
+            div {
+                display: table-row;
+            }
+
+            label, input {
+                display: table-cell;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Calculadora de Juros Compostos</h1>
+
+        <div> <label>Capital </label> <input id="c"> </div>
+        <div> <label>Taxa (%): </label> <input id="tx"> </div>
+        <div> <label>Numero de Meses </label> <input id="t"> </div>
+
+        <button onclick="calcular()">Calculo</button>
+
+        <p id="resultado"></p>
+    </body>
+</html>
